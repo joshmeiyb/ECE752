@@ -4,17 +4,17 @@
 
 
 #define ITER   10
-#define MAX_N 64*1024*1024 
+#define STEPS 64*1024*1024 //64MB, arbitraty number of steps
 #define MB    (1024*1024)
 
 // LLC Parameters assumed
 #define START_SIZE 1*MB
-#define STOP_SIZE  32*MB
+#define STOP_SIZE  12*MB
 
 
 using namespace std;
 
-char array[MAX_N];
+char array[STEPS];
 
 
 
@@ -26,7 +26,7 @@ double elapsedTime(timeval t1, timeval t2){
   double delta;
   delta = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
   delta += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
-  return delta; 
+  return delta; STEPS
 }
 
 /////////////////////////////////////////////////////////
@@ -41,7 +41,7 @@ double DummyTest(void)
   gettimeofday(&t1, NULL);
 
   for(iterid=0;iterid<ITER;iterid++){
-    for(ii=0; ii< MAX_N; ii++){
+    for(ii=0; ii< STEPS; ii++){
       array[ii] += rand();
     }
   }
@@ -70,11 +70,21 @@ double CacheNumLevelsTest(void)
 // Change this, including input parameters
 /////////////////////////////////////////////////////////
 
-double CacheSizeTest(void)
+double CacheSizeTest(int stride)
 {    
-  double retval;
+  timeval t1, t2;
 
-  return retval; 
+  // start timer
+  gettimeofday(&t1, NULL);
+
+  for (int i = 0; i < STEPS; i = i + stride){ //use different stride in loop, strides shows cache size
+    array[(i*16) % sizeof(array)]++;
+  }
+
+  // stop timer
+  gettimeofday(&t2, NULL);
+
+  return elapsedTime(t1,t2); 
 }
 
 

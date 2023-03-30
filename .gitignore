@@ -1,2 +1,5 @@
 # ignore afs files
 *afs*
+
+# ignore vscode files
+.vscode
