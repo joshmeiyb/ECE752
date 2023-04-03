@@ -1,3 +1,5 @@
+//TODO: fix the bug when having multiple cache accesses
+
 #include <cstdlib>
 #include <iostream>
 #include <random>
@@ -22,22 +24,29 @@ double elapsedTime(timeval t1, timeval t2){
 
 void cacheAccess(int size){
 
+  printf("\nCache access started, input test size is %dB\n", size);
+
   timeval t1, t2;
   int ii, iterid;
   
   //Initialize buffer 
-  int buffer_size = size / B;           //cache unit size is Byte
-  char* buffer = new char[buffer_size]; //Generate a dynamic array to hold data
-  fill(buffer, buffer+buffer_size, 1);  //initialize buffer array with all 1s
+  int buffer_size = size / sizeof(char);           // Cache unit size is Byte
+  printf("DEBUG, size of char is: %ld\n", sizeof(char));
+  // int buffer_size = size;
+  printf("DEBUG, buffer_size value is %d\n", buffer_size);
+  char* buffer = new char[buffer_size]; // Generate a dynamic array to hold data
+  printf("Buffer memory is initialized, buffer size is %ldB\n", sizeof(buffer));
+  std::fill(buffer, buffer+buffer_size, 1);  // Initialize buffer array with all 1
+  printf("Buffer memory is filled, buffer size is %ldB\n", sizeof(buffer));
 
-  std::uniform_int_distribution<int> distribution(0, buffer_size - 1);  //distribution on which to apply the generator
+  std::uniform_int_distribution<int> distribution(0, buffer_size - 1);  // Distribution on which to apply the generator
 
-  int access_time = 100000000;          //Make a large access number
+  int access_time = 100000;          // Make a large access number
 
-  vector<int> random_index;
+  vector<int> random_index;             // Index vector to access random place in buffer
   for (int i; i < access_time; i++){
     int index = distribution(generator);
-    random_index.push_back(index);      //push the element into a the random_index vector from the back
+    random_index.push_back(index);      // Push the element into a the random_index vector from the back
   }
 
   int total_data = 0;
@@ -45,18 +54,42 @@ void cacheAccess(int size){
   // start timer
   gettimeofday(&t1, NULL);
   for(int i = 0; i < access_time; i++){
-    total_data += buffer[random_index[i]];
+    total_data += buffer[random_index[i]];  //total_data array increment 1 byte by each access
   }
   // stop timer
   gettimeofday(&t2, NULL);
 
   double time_span = elapsedTime(t1,t2);
-  int buffer_size_kb = buffer_size / B;
-  double throughput = double(total_data / B) / time_span; //throughput kbps
+  double throughput = double(total_data / KB) / time_span; //throughput kbps
+  int buffer_size_kb = buffer_size / KB;
+
+  printf("Buffer size is %d KB, throughput is %f kbps\n", buffer_size_kb, throughput);
 
   delete[] buffer;  //free memory
+  printf("Buffer memory is freed!\n");
 }
 
+void cacheSize_test(){
+  // vector<int> sizes{ 1*KB, 2*KB, 4*KB, 8*KB, 16*KB, 32*KB, 64*KB, 128*KB, 192*KB, 256*KB, 384*KB, 512*KB, 1024*KB, 2048*KB, 3072*KB, 4096*KB, 6144*KB, 8192*KB };
+
+  // for(auto size : sizes){
+  //   cacheAccess(size);
+  // }
+  // cacheAccess(1*KB);
+  // cacheAccess(2*KB);
+  // cacheAccess(4*KB);
+  // cacheAccess(8*KB);
+  // cacheAccess(16*KB);
+  // cacheAccess(32*KB);
+  cacheAccess(64*KB);
+}
+
+int main(int argc, char **argv){  // equivalent expression is (int argc, char* argv[])
+
+  cacheSize_test();
+
+  return 0;
+}
 
 // /////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////
