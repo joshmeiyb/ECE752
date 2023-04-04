@@ -22,35 +22,15 @@ double elapsedTime(timeval t1, timeval t2){
   return delta; 
 }
 
-void cacheAccess(int size){ //input size is *KB
-
-  // printf("\nCache access started, input test size is %dB\n", size);
+void cacheAccess(int size){
 
   timeval t1, t2;
   int ii, iterid;
   
   //Initialize buffer 
-  // int buffer_size = size / B;           // Cache unit size is Byte
-  // printf("DEBUG, size of char is: %ld\n", sizeof(char));
-  // int buffer_size = size;
-  // printf("DEBUG, buffer_size value is %d\n", buffer_size);
 
   int* buffer = new int[size / B]; // Generate a dynamic array to hold data
-  // std::vector<char> buffer(size / B);
-
-  // for(int i = 0; i < (size / B); i++){
-  //   printf("DEBUG: Buffer: %d\n", buffer[i]);
-  // }
-  // printf("DEBUG: Buffer memory is initialized\n");
   std::fill(buffer, buffer+(size / B), 1);  // Initialize buffer array with all 1
-  // printf("DEBUG: Buffer memory is initialized with all 1\n");
-  // int count = 0;
-  // for(int i = 0; i < (size / B); i++){
-  // printf("DEBUG: Buffer initialized: %d\n", buffer[i]);
-  //   // count++;
-  // }
-  // printf("DEBUG: buffer element count: %d\n\n", count);
-    
 
   std::uniform_int_distribution<int> distribution(0, (size / B) - 1);  // Distribution on which to apply the generator
 
@@ -59,43 +39,23 @@ void cacheAccess(int size){ //input size is *KB
   vector<int> random_index;             // Index vector to access random place in buffer
   for (int i; i < access_time; i++){
     int index = distribution(generator);
-    // printf("index = %d\n", index);
     random_index.push_back(index);      // Push the element into a the random_index vector from the back
   }
-  // printf("DEBUG: Random index is generated, size of \n");
-
 
   int total_data = 0;
   // start timer
   gettimeofday(&t1, NULL);
   for(int i = 0; i < access_time; i++){
-    // printf("DEBUG: random_index[%d] = %d\n", i, random_index[i]);
     total_data += buffer[random_index[i]];  //total_data array increment 1 byte by each access
   }
-  // for(int i = 0; i < size; i++){
-  //   total_data += buffer[i];  //total_data array increment 1 byte by each access
-  // }
   // stop timer
   gettimeofday(&t2, NULL);
-  // printf("DEBUG: time is captured!\n");
-  // printf("DEBUG: total data = %d\n", total_data);
-  
-  // printf("DEBUG, random_index is filled!\n");
-  // for(int i = 0; i < (size / B); i++){
-  //   printf("DEBUG: Buffer is filled with random data from random index: %d\n", buffer[i]);
-  // }
 
   double time_span = elapsedTime(t1,t2);
   double throughput = double(total_data / KB) / time_span; //throughput kbps
   printf("Buffer size is %d KB, throughput is %f kbps\n", (size / KB), throughput);
-  // printf("Buffer memory size is %ldB\n", sizeof(buffer));
 
   delete[] buffer;  //free memory
-  
-  // for(int i = 0; i < (size / B); i++){
-  //   printf("DEBUG: Buffer: %d\n", buffer[i]);
-  // }
-  // printf("Buffer memory is freed!\n");
 }
 
 void cacheSize_test(){
@@ -120,115 +80,3 @@ int main(int argc, char **argv){  // equivalent expression is (int argc, char* a
 
   return 0;
 }
-
-// /////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////
-
-// double DummyTest(void)
-// {    
-//   timeval t1, t2;
-//   int ii, iterid;
-
-//   // start timer
-//   gettimeofday(&t1, NULL);
-
-//   for(iterid=0;iterid<ITER;iterid++){
-//     for(ii=0; ii< STEPS; ii++){
-//       array[ii] += rand();
-//     }
-//   }
-
-//   // stop timer
-//   gettimeofday(&t2, NULL);
- 
-//   return elapsedTime(t1,t2);
-// }
-
-
-
-// /////////////////////////////////////////////////////////
-// // Change this, including input parameters
-// /////////////////////////////////////////////////////////
-
-// double CacheNumLevelsTest(void)
-// {    
-//   double retval;
-
-//   return retval; 
-// }
-
-
-// /////////////////////////////////////////////////////////
-// // Change this, including input parameters
-// /////////////////////////////////////////////////////////
-
-// double CacheSizeTest(int stride)
-// {    
-  
-//   //TODO: 1. Create a array with the size of L1 cache ITER*size 
-//   //      2. Iterate over the buffer to load all data into cache
-//   //      3. 
-  
-  
-//   timeval t1, t2;
-
-//   for (int i = 0; i < ITER ; i++){
-//     // start timer
-//     gettimeofday(&t1, NULL);
-//     for (int j = 0; j < STEPS; j = j + (stride*Byte)){ //use different stride in loop, strides shows cache block size in each way
-//       array[(j * 16) % sizeof(array)]++;
-//     }
-//     // stop timer
-//     gettimeofday(&t2, NULL);
-//     printf("ITER num: %d, size cache: %d, stride: %d, access time: %f\n", i, STEPS, stride, elapsedTime(t1, t2));
-//   }
-
-//   return 0;
-// }
-
-
-// /////////////////////////////////////////////////////////
-// // Change this, including input parameters
-// /////////////////////////////////////////////////////////
-
-// double LineSizeTest(void)
-// {    
-//   double retval;
-
-//   return retval; 
-// }
-
-
-// /////////////////////////////////////////////////////////
-// // Change this, including input parameters
-// /////////////////////////////////////////////////////////
-
-// double MemoryTimingTest(void)
-// {    
-//   double retval;
-
-//   return retval; 
-// }
-
-
-
-// /////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////
-
-// int main(){
-  
-//   cout << "\nStarting DummyTest:" << "\n";
-//   cout << "Test took " << DummyTest()/1000.0 << " seconds\n";
-
-//   int stride = 64; //skip amount of memory before next access
-
-//   printf("Start CacheSizeTest\n");
-//   CacheSizeTest(stride);
-
-//   // Add your code here, and comment above
-
-//   cout << "\n";
-// }
-
-// /////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////
