@@ -1,5 +1,3 @@
-//TODO: fix the bug when having multiple cache accesses
-
 #include <cstdlib>
 #include <iostream>
 #include <random>
@@ -13,7 +11,6 @@ using namespace std;
 
 std::random_device rd;  //seed
 std::default_random_engine generator(rd()); //random number generator
-
 
 double elapsedTime(timeval t1, timeval t2){
   double delta;
@@ -34,10 +31,10 @@ void cacheAccess(int size){
 
   std::uniform_int_distribution<int> distribution(0, (size / B) - 1);  // Distribution on which to apply the generator
 
-  int access_time = 99999999;          // Make a large access number
+  int access_time = 9999999;          // Make a large access number
 
   vector<int> random_index;             // Index vector to access random place in buffer
-  for (int i; i < access_time; i++){
+  for (int i = 0; i < access_time; i++){
     int index = distribution(generator);
     random_index.push_back(index);      // Push the element into a the random_index vector from the back
   }
@@ -53,28 +50,23 @@ void cacheAccess(int size){
 
   double time_span = elapsedTime(t1,t2);
   double throughput = double(total_data / KB) / time_span; //throughput kbps
-  printf("Buffer size is %d KB, throughput is %f kbps\n", (size / KB), throughput);
+  // printf("Buffer size is %d KB, throughput is %f kbps\n", (size / KB), throughput);
+  printf("%d %f\n", (size / KB), throughput);
 
   delete[] buffer;  //free memory
 }
 
 void cacheSize_test(){
-  // vector<int> sizes{ 1*KB, 2*KB, 4*KB, 8*KB, 16*KB, 32*KB, 64*KB, 128*KB, 192*KB, 256*KB, 384*KB, 512*KB, 1024*KB, 2048*KB, 3072*KB, 4096*KB, 6144*KB, 8192*KB };
+  
+  vector<int> sizes{ 1*KB, 2*KB, 4*KB, 8*KB, 16*KB, 32*KB, 50*KB, 64*KB, 72*KB, 80*KB, 96*KB, 128*KB, 192*KB, 256*KB, 384*KB, 512*KB,
+                     1*MB, 2*MB, 3*MB, 4*MB, 5*MB, 6*MB, 7*MB, 8*MB, 9*MB, 10*MB, 11*MB, 12*MB, 16*MB, 32*MB, 64*MB, 128*MB};
 
-  // for(auto size : sizes){
-  //   cacheAccess(size);
-  // }
-  // cacheAccess(1*KB);
-  // cacheAccess(2*KB);
-  // cacheAccess(4*KB);
-  // cacheAccess(8*KB);
-  // cacheAccess(16*KB);
-  // cacheAccess(32*KB);
-  // cacheAccess(64*KB);
-  cacheAccess(12*MB);
+  for(auto size : sizes){
+    cacheAccess(size);
+  }
 }
 
-int main(int argc, char **argv){  // equivalent expression is (int argc, char* argv[])
+int main(/*int argc, char **argv*/){  // equivalent expression is (int argc, char* argv[])
 
   cacheSize_test();
 
