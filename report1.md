@@ -7,9 +7,10 @@ Intel Core i5-11500 Processor, due to the website https://ark.intel.com/content/
 1. Run the command to get the infomation of cache size: `getconf -a | grep CACHE`
 2. Results: 
 
+```
 LEVEL1_ICACHE_SIZE                 32768
 LEVEL1_ICACHE_ASSOC                
-LEVEL1_ICACHE_LINESIZE             64
+LEVEL1_ICACHE_LINESIZE             64 
 LEVEL1_DCACHE_SIZE                 49152
 LEVEL1_DCACHE_ASSOC                12
 LEVEL1_DCACHE_LINESIZE             64
@@ -19,5 +20,6 @@ LEVEL2_CACHE_LINESIZE              64
 LEVEL3_CACHE_SIZE                  12582912
 LEVEL3_CACHE_ASSOC                 16
 LEVEL3_CACHE_LINESIZE              64
+```
 
 L1 Cache index size = 49152 / (12 * 64) = 64
