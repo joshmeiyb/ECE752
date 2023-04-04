@@ -22,51 +22,80 @@ double elapsedTime(timeval t1, timeval t2){
   return delta; 
 }
 
-void cacheAccess(int size){
+void cacheAccess(int size){ //input size is *KB
 
-  printf("\nCache access started, input test size is %dB\n", size);
+  // printf("\nCache access started, input test size is %dB\n", size);
 
   timeval t1, t2;
   int ii, iterid;
   
   //Initialize buffer 
-  int buffer_size = size / sizeof(char);           // Cache unit size is Byte
-  printf("DEBUG, size of char is: %ld\n", sizeof(char));
+  // int buffer_size = size / B;           // Cache unit size is Byte
+  // printf("DEBUG, size of char is: %ld\n", sizeof(char));
   // int buffer_size = size;
-  printf("DEBUG, buffer_size value is %d\n", buffer_size);
-  char* buffer = new char[buffer_size]; // Generate a dynamic array to hold data
-  printf("Buffer memory is initialized, buffer size is %ldB\n", sizeof(buffer));
-  std::fill(buffer, buffer+buffer_size, 1);  // Initialize buffer array with all 1
-  printf("Buffer memory is filled, buffer size is %ldB\n", sizeof(buffer));
+  // printf("DEBUG, buffer_size value is %d\n", buffer_size);
 
-  std::uniform_int_distribution<int> distribution(0, buffer_size - 1);  // Distribution on which to apply the generator
+  int* buffer = new int[size / B]; // Generate a dynamic array to hold data
+  // std::vector<char> buffer(size / B);
 
-  int access_time = 100000;          // Make a large access number
+  // for(int i = 0; i < (size / B); i++){
+  //   printf("DEBUG: Buffer: %d\n", buffer[i]);
+  // }
+  // printf("DEBUG: Buffer memory is initialized\n");
+  std::fill(buffer, buffer+(size / B), 1);  // Initialize buffer array with all 1
+  // printf("DEBUG: Buffer memory is initialized with all 1\n");
+  // int count = 0;
+  // for(int i = 0; i < (size / B); i++){
+  // printf("DEBUG: Buffer initialized: %d\n", buffer[i]);
+  //   // count++;
+  // }
+  // printf("DEBUG: buffer element count: %d\n\n", count);
+    
+
+  std::uniform_int_distribution<int> distribution(0, (size / B) - 1);  // Distribution on which to apply the generator
+
+  int access_time = 99999999;          // Make a large access number
 
   vector<int> random_index;             // Index vector to access random place in buffer
   for (int i; i < access_time; i++){
     int index = distribution(generator);
+    // printf("index = %d\n", index);
     random_index.push_back(index);      // Push the element into a the random_index vector from the back
   }
+  // printf("DEBUG: Random index is generated, size of \n");
+
 
   int total_data = 0;
-
   // start timer
   gettimeofday(&t1, NULL);
   for(int i = 0; i < access_time; i++){
+    // printf("DEBUG: random_index[%d] = %d\n", i, random_index[i]);
     total_data += buffer[random_index[i]];  //total_data array increment 1 byte by each access
   }
+  // for(int i = 0; i < size; i++){
+  //   total_data += buffer[i];  //total_data array increment 1 byte by each access
+  // }
   // stop timer
   gettimeofday(&t2, NULL);
+  // printf("DEBUG: time is captured!\n");
+  // printf("DEBUG: total data = %d\n", total_data);
+  
+  // printf("DEBUG, random_index is filled!\n");
+  // for(int i = 0; i < (size / B); i++){
+  //   printf("DEBUG: Buffer is filled with random data from random index: %d\n", buffer[i]);
+  // }
 
   double time_span = elapsedTime(t1,t2);
   double throughput = double(total_data / KB) / time_span; //throughput kbps
-  int buffer_size_kb = buffer_size / KB;
-
-  printf("Buffer size is %d KB, throughput is %f kbps\n", buffer_size_kb, throughput);
+  printf("Buffer size is %d KB, throughput is %f kbps\n", (size / KB), throughput);
+  // printf("Buffer memory size is %ldB\n", sizeof(buffer));
 
   delete[] buffer;  //free memory
-  printf("Buffer memory is freed!\n");
+  
+  // for(int i = 0; i < (size / B); i++){
+  //   printf("DEBUG: Buffer: %d\n", buffer[i]);
+  // }
+  // printf("Buffer memory is freed!\n");
 }
 
 void cacheSize_test(){
@@ -81,7 +110,8 @@ void cacheSize_test(){
   // cacheAccess(8*KB);
   // cacheAccess(16*KB);
   // cacheAccess(32*KB);
-  cacheAccess(64*KB);
+  // cacheAccess(64*KB);
+  cacheAccess(12*MB);
 }
 
 int main(int argc, char **argv){  // equivalent expression is (int argc, char* argv[])

@@ -11,4 +11,4 @@ problem1.o: problem1.cpp
 	$(CXX) $(CXXFLAGS) -c problem1.cpp
 
 clean:
-	rm *.o output
+	rm *.o output output.txt
