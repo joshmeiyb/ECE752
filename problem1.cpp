@@ -31,7 +31,7 @@ void cacheAccess(int size){
 
   std::uniform_int_distribution<int> distribution(0, (size / B) - 1);  // Distribution on which to apply the generator
 
-  int access_time = 9999999;          // Make a large access number
+  int access_time = 99999999;          // Make a large access number
 
   vector<int> random_index;             // Index vector to access random place in buffer
   for (int i = 0; i < access_time; i++){
@@ -51,7 +51,7 @@ void cacheAccess(int size){
   double time_span = elapsedTime(t1,t2);
   double throughput = double(total_data / KB) / time_span; //throughput kbps
   // printf("Buffer size is %d KB, throughput is %f kbps\n", (size / KB), throughput);
-  printf("%d %f\n", (size / KB), throughput);
+  printf("%d,%f\n", (size / KB), throughput);
 
   delete[] buffer;  //free memory
 }

@@ -5,4 +5,5 @@
 .vscode
 
 *.o
-output output.txt
+output
+output.txt
