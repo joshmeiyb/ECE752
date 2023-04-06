@@ -73,14 +73,14 @@ void cacheLineAccess(int stride){
   timeval t1, t2;
   int ii, iterid;
   
-  int buffer_size = 400 * MB;
+  int buffer_size = 100 * MB;
   // Initialize buffer array with all 1
   int* buffer = new int [buffer_size / B];
   std::fill(buffer, buffer+(buffer_size / B), 1);  
 
   // Generate a large number of access 
   // Each access index is within the stride size
-  // int access_time = 9999999;
+  // int access_time = 100;
   // std::uniform_int_distribution<int> distribution(0, (stride / B) - 1);
 
   // vector<int> random_index;
@@ -95,16 +95,18 @@ void cacheLineAccess(int stride){
   // If stride is out of cache line, the access will miss 
   int total_data = 0;
   gettimeofday(&t1, NULL);
-  for(int i = 0; i < stride; i++){              
-    for(int j = 0; j < (buffer_size / B); j+=stride){
-        total_data += buffer[j];                          
-    }
-  }
-  // for(int i = 0; i < access_time; i++){
-  //   for(int j = 0; j < ()){
-      
+  // for(int i = 0; i < stride; i++){              
+  //   for(int j = 0; j < (buffer_size / B); j+=stride){
+  //       total_data += buffer[j];                          
   //   }
-  //   total_data += buffer[random_index[i]];
+  // }
+  // for(int i = 0; i < access_time; i++){
+    for(int j = stride; j < (buffer_size / B); j+=stride){
+      // if (j >= (buffer_size / B)){
+          // printf("ERROR, Range exceed!");
+      // }
+        total_data += buffer[j];
+    }
   // }
   gettimeofday(&t2, NULL);
 
@@ -112,18 +114,20 @@ void cacheLineAccess(int stride){
   double throughput = double(total_data / KB) / time_span;
   printf("%d,%f\n", stride, throughput);
 
+  delete[] buffer;  //free memory
 }
 
 void cacheLine_test(){
 
   // int buffer_size = 100*MB;  // initialize a large memory size for test, larger than L3 cache
 
-  vector<int> strides{ 1*B, 2*B, 4*B, 8*B, 16*B, 32*B, 50*B, 64*B, 72*B, 80*B, 96*B, 128*B, 192*B, 256*B, 384*B, 512*B,
+  vector<int> strides{ 0*B, 1*B, 2*B, 4*B, 8*B, 16*B, 32*B, 50*B, 64*B, 72*B, 80*B, 96*B, 128*B, 192*B, 256*B, 384*B, 512*B,
                      1*KB, 2*KB, 3*KB, 4*KB, 5*KB, 6*KB, 7*KB, 8*KB, 9*KB, 10*KB, 11*KB, 12*KB, 16*KB, 32*KB, 64*KB, 128*KB};
 
   for(auto stride : strides){
     cacheLineAccess(stride);
   }
+  // cacheLineAccess(1*B);
 }
 
 int main(/*int argc, char **argv*/){  // equivalent expression is (int argc, char* argv[])
