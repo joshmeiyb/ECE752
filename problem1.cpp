@@ -1,4 +1,3 @@
-//TODO: debug cache line access
 #include <cstdlib>
 #include <iostream>
 #include <random>
