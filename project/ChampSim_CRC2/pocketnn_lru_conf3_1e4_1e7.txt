@@ -1,0 +1,11 @@
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 10000
+Simulation Instructions: 10000000
+Configuration: 3
+Number of CPUs: 4
+LLC sets: 8192
+LLC ways: 16
+Off-chip DRAM Channels: 2 Width: 64-bit Data Rate: 1600 MT/s
+

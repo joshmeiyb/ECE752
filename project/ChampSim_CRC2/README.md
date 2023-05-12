@@ -101,7 +101,7 @@ $ g++ -Wall --std=c++11 -o lru-config1 example/lru.cc lib/config1.a
 $ ./lru-config1 -warmup_instructions 1000000 -simulation_instructions 10000000 -traces trace/bzip2_10M.trace.gz
 
 2. Single-core SPEC CPU 2006 benchmarks with prefetcher
-$ g++ -Wall --std=c++11 -o lru-config1 example/lru.cc lib/config2.a
+$ g++ -Wall --std=c++11 -o lru-config2 example/lru.cc lib/config2.a
 $ ./lru-config2 -warmup_instructions 1000000 -simulation_instructions 10000000 -traces trace/bzip2_10M.trace.gz
 
 3. 4-core multi-app SPEC CPU 2006 benchmarks without prefetcher

@@ -1,0 +1,209 @@
+[jmei@rockhopper-07] (35)$ ./hawkeye-config1 -warmup_instructions 0 -simulation_instructions 100000 -traces trace/inference_resnet18_1batch.champsim.gz 
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 0
+Simulation Instructions: 100000
+Configuration: 1
+Number of CPUs: 1
+LLC sets: 2048
+LLC ways: 16
+Off-chip DRAM Channels: 1 Width: 64-bit Data Rate: 1600 MT/s
+
+CPU 0 runs trace/inference_resnet18_1batch.champsim.gz
+Initialize Hawkeye state
+
+Warmup complete CPU 0 instructions: 1 cycles: 8 (Simulation time: 0 hr 0 min 0 sec) 
+
+Finished CPU 0 instructions: 100000 cycles: 328313 cummulative IPC: 0.304587 (Simulation time: 0 hr 0 min 0 sec) 
+
+ChampSim completed all CPUs
+
+Region of Interest Statistics
+
+CPU 0 cummulative IPC: 0.304587 instructions: 100000 cycles: 328313
+LLC TOTAL     ACCESS:       1678  HIT:          0  MISS:       1678
+LLC LOAD      ACCESS:       1211  HIT:          0  MISS:       1211
+LLC RFO       ACCESS:        467  HIT:          0  MISS:        467
+LLC PREFETCH  ACCESS:          0  HIT:          0  MISS:          0
+LLC WRITEBACK ACCESS:          0  HIT:          0  MISS:          0
+OPTgen accesses: 28
+OPTgen hits: 0
+OPTgen hit rate: 0
+
+
+[jmei@rockhopper-07] (36)$ ./hawkeye-config1 -warmup_instructions 0 -simulation_instructions 200000 -traces trace/inference_resnet18_1batch.champsim.gz 
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 0
+Simulation Instructions: 200000
+Configuration: 1
+Number of CPUs: 1
+LLC sets: 2048
+LLC ways: 16
+Off-chip DRAM Channels: 1 Width: 64-bit Data Rate: 1600 MT/s
+
+CPU 0 runs trace/inference_resnet18_1batch.champsim.gz
+Initialize Hawkeye state
+
+Warmup complete CPU 0 instructions: 1 cycles: 8 (Simulation time: 0 hr 0 min 0 sec) 
+
+Finished CPU 0 instructions: 200001 cycles: 533515 cummulative IPC: 0.374874 (Simulation time: 0 hr 0 min 0 sec) 
+
+ChampSim completed all CPUs
+
+Region of Interest Statistics
+
+CPU 0 cummulative IPC: 0.374874 instructions: 200001 cycles: 533515
+LLC TOTAL     ACCESS:       2259  HIT:          1  MISS:       2258
+LLC LOAD      ACCESS:       1622  HIT:          0  MISS:       1622
+LLC RFO       ACCESS:        636  HIT:          0  MISS:        636
+LLC PREFETCH  ACCESS:          0  HIT:          0  MISS:          0
+LLC WRITEBACK ACCESS:          1  HIT:          1  MISS:          0
+OPTgen accesses: 37
+OPTgen hits: 0
+OPTgen hit rate: 0
+
+
+[jmei@rockhopper-07] (37)$ ./hawkeye-config1 -warmup_instructions 0 -simulation_instructions 500000 -traces trace/inference_resnet18_1batch.champsim.gz 
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 0
+Simulation Instructions: 500000
+Configuration: 1
+Number of CPUs: 1
+LLC sets: 2048
+LLC ways: 16
+Off-chip DRAM Channels: 1 Width: 64-bit Data Rate: 1600 MT/s
+
+CPU 0 runs trace/inference_resnet18_1batch.champsim.gz
+Initialize Hawkeye state
+
+Warmup complete CPU 0 instructions: 1 cycles: 8 (Simulation time: 0 hr 0 min 0 sec) 
+
+Finished CPU 0 instructions: 500000 cycles: 1191885 cummulative IPC: 0.419504 (Simulation time: 0 hr 0 min 1 sec) 
+
+ChampSim completed all CPUs
+
+Region of Interest Statistics
+
+CPU 0 cummulative IPC: 0.419504 instructions: 500000 cycles: 1191885
+LLC TOTAL     ACCESS:       6130  HIT:        521  MISS:       5609
+LLC LOAD      ACCESS:       4307  HIT:         29  MISS:       4278
+LLC RFO       ACCESS:       1332  HIT:          1  MISS:       1331
+LLC PREFETCH  ACCESS:          0  HIT:          0  MISS:          0
+LLC WRITEBACK ACCESS:        491  HIT:        491  MISS:          0
+OPTgen accesses: 92
+OPTgen hits: 1
+OPTgen hit rate: 1.08696
+
+
+[jmei@rockhopper-07] (38)$ ./hawkeye-config1 -warmup_instructions 0 -simulation_instructions 1000000 -traces trace/inference_resnet18_1batch.champsim.gz 
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 0
+Simulation Instructions: 1000000
+Configuration: 1
+Number of CPUs: 1
+LLC sets: 2048
+LLC ways: 16
+Off-chip DRAM Channels: 1 Width: 64-bit Data Rate: 1600 MT/s
+
+CPU 0 runs trace/inference_resnet18_1batch.champsim.gz
+Initialize Hawkeye state
+
+Warmup complete CPU 0 instructions: 1 cycles: 8 (Simulation time: 0 hr 0 min 0 sec) 
+
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 1000001 cycles: 2207404 heartbeat IPC: 0.453021 cumulative IPC: 0.453022 (Simulation time: 0 hr 0 min 2 sec) 
+Finished CPU 0 instructions: 1000000 cycles: 2207396 cummulative IPC: 0.453022 (Simulation time: 0 hr 0 min 2 sec) 
+
+ChampSim completed all CPUs
+
+Region of Interest Statistics
+
+CPU 0 cummulative IPC: 0.453022 instructions: 1000000 cycles: 2207396
+LLC TOTAL     ACCESS:       9423  HIT:       1233  MISS:       8190
+LLC LOAD      ACCESS:       6782  HIT:         67  MISS:       6715
+LLC RFO       ACCESS:       1500  HIT:         25  MISS:       1475
+LLC PREFETCH  ACCESS:          0  HIT:          0  MISS:          0
+LLC WRITEBACK ACCESS:       1141  HIT:       1141  MISS:          0
+OPTgen accesses: 135
+OPTgen hits: 2
+OPTgen hit rate: 1.48148
+
+
+[jmei@rockhopper-07] (39)$ ./hawkeye-config1 -warmup_instructions 0 -simulation_instructions 1500000 -traces trace/inference_resnet18_1batch.champsim.gz 
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 0
+Simulation Instructions: 1500000
+Configuration: 1
+Number of CPUs: 1
+LLC sets: 2048
+LLC ways: 16
+Off-chip DRAM Channels: 1 Width: 64-bit Data Rate: 1600 MT/s
+
+CPU 0 runs trace/inference_resnet18_1batch.champsim.gz
+Initialize Hawkeye state
+
+Warmup complete CPU 0 instructions: 1 cycles: 8 (Simulation time: 0 hr 0 min 0 sec) 
+
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 1000001 cycles: 2207404 heartbeat IPC: 0.453021 cumulative IPC: 0.453022 (Simulation time: 0 hr 0 min 2 sec) 
+Finished CPU 0 instructions: 1500000 cycles: 2939115 cummulative IPC: 0.510358 (Simulation time: 0 hr 0 min 3 sec) 
+
+ChampSim completed all CPUs
+
+Region of Interest Statistics
+
+CPU 0 cummulative IPC: 0.510358 instructions: 1500000 cycles: 2939115
+LLC TOTAL     ACCESS:      15835  HIT:       7645  MISS:       8190
+LLC LOAD      ACCESS:      10943  HIT:       4228  MISS:       6715
+LLC RFO       ACCESS:       2770  HIT:       1295  MISS:       1475
+LLC PREFETCH  ACCESS:          0  HIT:          0  MISS:          0
+LLC WRITEBACK ACCESS:       2122  HIT:       2122  MISS:          0
+OPTgen accesses: 226
+OPTgen hits: 93
+OPTgen hit rate: 41.1504o
+
+[jmei@rockhopper-07] (43)$ ./hawkeye-config1 -warmup_instructions 0 -simulation_instructions 2000000 -traces trace/inference_resnet18_1batch.champsim.gz 
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 0
+Simulation Instructions: 2000000
+Configuration: 1
+Number of CPUs: 1
+LLC sets: 2048
+LLC ways: 16
+Off-chip DRAM Channels: 1 Width: 64-bit Data Rate: 1600 MT/s
+
+CPU 0 runs trace/inference_resnet18_1batch.champsim.gz
+Initialize Hawkeye state
+
+Warmup complete CPU 0 instructions: 1 cycles: 8 (Simulation time: 0 hr 0 min 0 sec) 
+
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 1000001 cycles: 2207404 heartbeat IPC: 0.453021 cumulative IPC: 0.453022 (Simulation time: 0 hr 0 min 2 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 2000001 cycles: 3671068 heartbeat IPC: 0.683217 cumulative IPC: 0.544802 (Simulation time: 0 hr 0 min 4 sec) 
+Finished CPU 0 instructions: 2000000 cycles: 3671060 cummulative IPC: 0.544802 (Simulation time: 0 hr 0 min 4 sec) 
+
+ChampSim completed all CPUs
+
+Region of Interest Statistics
+
+CPU 0 cummulative IPC: 0.544802 instructions: 2000000 cycles: 3671060
+LLC TOTAL     ACCESS:      19075  HIT:      10885  MISS:       8190
+LLC LOAD      ACCESS:      13361  HIT:       6646  MISS:       6715
+LLC RFO       ACCESS:       2938  HIT:       1463  MISS:       1475
+LLC PREFETCH  ACCESS:          0  HIT:          0  MISS:          0
+LLC WRITEBACK ACCESS:       2776  HIT:       2776  MISS:          0
+OPTgen accesses: 267
+OPTgen hits: 134
+OPTgen hit rate: 50.1873

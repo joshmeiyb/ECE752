@@ -1,0 +1,48 @@
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 1000
+Simulation Instructions: 10000000
+Configuration: 1
+Number of CPUs: 1
+LLC sets: 2048
+LLC ways: 16
+Off-chip DRAM Channels: 1 Width: 64-bit Data Rate: 1600 MT/s
+
+CPU 0 runs trace/inference_resnet18_1batch.champsim.gz
+Initialize SRRIP state
+
+Warmup complete CPU 0 instructions: 1002 cycles: 413 (Simulation time: 0 hr 0 min 0 sec) 
+
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 1000001 cycles: 2201377 heartbeat IPC: 0.454262 cumulative IPC: 0.453892 (Simulation time: 0 hr 0 min 2 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 2000001 cycles: 3665041 heartbeat IPC: 0.683217 cumulative IPC: 0.545485 (Simulation time: 0 hr 0 min 4 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 3000001 cycles: 5127340 heartbeat IPC: 0.683855 cumulative IPC: 0.584951 (Simulation time: 0 hr 0 min 6 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 4000000 cycles: 6586863 heartbeat IPC: 0.685155 cumulative IPC: 0.607155 (Simulation time: 0 hr 0 min 7 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 5000001 cycles: 8046232 heartbeat IPC: 0.685228 cumulative IPC: 0.621316 (Simulation time: 0 hr 0 min 9 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 6000001 cycles: 9508452 heartbeat IPC: 0.683892 cumulative IPC: 0.63094 (Simulation time: 0 hr 0 min 11 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 7000001 cycles: 10970751 heartbeat IPC: 0.683855 cumulative IPC: 0.637993 (Simulation time: 0 hr 0 min 13 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 8000000 cycles: 12430274 heartbeat IPC: 0.685155 cumulative IPC: 0.643531 (Simulation time: 0 hr 0 min 14 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 9000001 cycles: 13889643 heartbeat IPC: 0.685228 cumulative IPC: 0.647912 (Simulation time: 0 hr 0 min 16 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/inference_resnet18_1batch.champsim.gz
+Heartbeat CPU 0 instructions: 10000001 cycles: 15351863 heartbeat IPC: 0.683892 cumulative IPC: 0.651339 (Simulation time: 0 hr 0 min 18 sec) 
+Finished CPU 0 instructions: 10000002 cycles: 15353085 cummulative IPC: 0.651335 (Simulation time: 0 hr 0 min 18 sec) 
+
+ChampSim completed all CPUs
+
+Region of Interest Statistics
+
+CPU 0 cummulative IPC: 0.651335 instructions: 10000002 cycles: 15353085
+LLC TOTAL     ACCESS:      96276  HIT:      88157  MISS:       8119
+LLC LOAD      ACCESS:      65977  HIT:      59311  MISS:       6666
+LLC RFO       ACCESS:      14440  HIT:      12987  MISS:       1453
+LLC PREFETCH  ACCESS:          0  HIT:          0  MISS:          0
+LLC WRITEBACK ACCESS:      15859  HIT:      15859  MISS:          0

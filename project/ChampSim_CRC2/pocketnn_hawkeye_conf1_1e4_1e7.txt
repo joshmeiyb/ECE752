@@ -1,0 +1,53 @@
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 10000
+Simulation Instructions: 10000000
+Configuration: 1
+Number of CPUs: 1
+LLC sets: 2048
+LLC ways: 16
+Off-chip DRAM Channels: 1 Width: 64-bit Data Rate: 1600 MT/s
+
+CPU 0 runs trace/champsim_pocketnn_workload.trace.gz
+Initialize Hawkeye state
+
+Warmup complete CPU 0 instructions: 10003 cycles: 3543 (Simulation time: 0 hr 0 min 0 sec) 
+
+*** Reached end of trace for Core: 0 Repeating trace: trace/champsim_pocketnn_workload.trace.gz
+Heartbeat CPU 0 instructions: 1000000 cycles: 1977826 heartbeat IPC: 0.505606 cumulative IPC: 0.501446 (Simulation time: 0 hr 0 min 1 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/champsim_pocketnn_workload.trace.gz
+Heartbeat CPU 0 instructions: 2000001 cycles: 3436627 heartbeat IPC: 0.685495 cumulative IPC: 0.579653 (Simulation time: 0 hr 0 min 3 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/champsim_pocketnn_workload.trace.gz
+Heartbeat CPU 0 instructions: 3000001 cycles: 4894292 heartbeat IPC: 0.686029 cumulative IPC: 0.611358 (Simulation time: 0 hr 0 min 5 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/champsim_pocketnn_workload.trace.gz
+Heartbeat CPU 0 instructions: 4000000 cycles: 6352206 heartbeat IPC: 0.685911 cumulative IPC: 0.628478 (Simulation time: 0 hr 0 min 6 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/champsim_pocketnn_workload.trace.gz
+Heartbeat CPU 0 instructions: 5000001 cycles: 7809908 heartbeat IPC: 0.686012 cumulative IPC: 0.639222 (Simulation time: 0 hr 0 min 8 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/champsim_pocketnn_workload.trace.gz
+Heartbeat CPU 0 instructions: 6000002 cycles: 9267581 heartbeat IPC: 0.686026 cumulative IPC: 0.646586 (Simulation time: 0 hr 0 min 10 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/champsim_pocketnn_workload.trace.gz
+Heartbeat CPU 0 instructions: 7000000 cycles: 10725230 heartbeat IPC: 0.686035 cumulative IPC: 0.651949 (Simulation time: 0 hr 0 min 11 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/champsim_pocketnn_workload.trace.gz
+Heartbeat CPU 0 instructions: 8000000 cycles: 12182826 heartbeat IPC: 0.686061 cumulative IPC: 0.656032 (Simulation time: 0 hr 0 min 13 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/champsim_pocketnn_workload.trace.gz
+Heartbeat CPU 0 instructions: 9000000 cycles: 13640482 heartbeat IPC: 0.686033 cumulative IPC: 0.659239 (Simulation time: 0 hr 0 min 15 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/champsim_pocketnn_workload.trace.gz
+Heartbeat CPU 0 instructions: 10000002 cycles: 15098085 heartbeat IPC: 0.686059 cumulative IPC: 0.661829 (Simulation time: 0 hr 0 min 17 sec) 
+Finished CPU 0 instructions: 10000002 cycles: 15107634 cummulative IPC: 0.661917 (Simulation time: 0 hr 0 min 17 sec) 
+
+ChampSim completed all CPUs
+
+Region of Interest Statistics
+
+CPU 0 cummulative IPC: 0.661917 instructions: 10000002 cycles: 15107634
+LLC TOTAL     ACCESS:      72713  HIT:      66219  MISS:       6494
+LLC LOAD      ACCESS:      49515  HIT:      44255  MISS:       5260
+LLC RFO       ACCESS:      11372  HIT:      10138  MISS:       1234
+LLC PREFETCH  ACCESS:          0  HIT:          0  MISS:          0
+LLC WRITEBACK ACCESS:      11826  HIT:      11826  MISS:          0
+OPTgen accesses: 929
+OPTgen hits: 830
+OPTgen hit rate: 89.3434
+
+

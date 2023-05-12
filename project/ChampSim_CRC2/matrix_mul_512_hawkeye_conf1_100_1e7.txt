@@ -1,0 +1,53 @@
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 100
+Simulation Instructions: 10000000
+Configuration: 1
+Number of CPUs: 1
+LLC sets: 2048
+LLC ways: 16
+Off-chip DRAM Channels: 1 Width: 64-bit Data Rate: 1600 MT/s
+
+CPU 0 runs trace/matrix_mul_512.trace.gz
+Initialize Hawkeye state
+
+Warmup complete CPU 0 instructions: 101 cycles: 62 (Simulation time: 0 hr 0 min 0 sec) 
+
+*** Reached end of trace for Core: 0 Repeating trace: trace/matrix_mul_512.trace.gz
+Heartbeat CPU 0 instructions: 1000001 cycles: 8181614 heartbeat IPC: 0.122225 cumulative IPC: 0.122214 (Simulation time: 0 hr 0 min 4 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/matrix_mul_512.trace.gz
+Heartbeat CPU 0 instructions: 2000001 cycles: 16079305 heartbeat IPC: 0.126619 cumulative IPC: 0.124378 (Simulation time: 0 hr 0 min 8 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/matrix_mul_512.trace.gz
+Heartbeat CPU 0 instructions: 3000001 cycles: 23979910 heartbeat IPC: 0.126573 cumulative IPC: 0.125101 (Simulation time: 0 hr 0 min 12 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/matrix_mul_512.trace.gz
+Heartbeat CPU 0 instructions: 4000000 cycles: 31879132 heartbeat IPC: 0.126595 cumulative IPC: 0.125471 (Simulation time: 0 hr 0 min 16 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/matrix_mul_512.trace.gz
+Heartbeat CPU 0 instructions: 5000001 cycles: 39779650 heartbeat IPC: 0.126574 cumulative IPC: 0.12569 (Simulation time: 0 hr 0 min 20 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/matrix_mul_512.trace.gz
+Heartbeat CPU 0 instructions: 6000001 cycles: 47679039 heartbeat IPC: 0.126592 cumulative IPC: 0.12584 (Simulation time: 0 hr 0 min 24 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/matrix_mul_512.trace.gz
+Heartbeat CPU 0 instructions: 7000001 cycles: 55579782 heartbeat IPC: 0.12657 cumulative IPC: 0.125943 (Simulation time: 0 hr 0 min 28 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/matrix_mul_512.trace.gz
+Heartbeat CPU 0 instructions: 8000000 cycles: 63478626 heartbeat IPC: 0.126601 cumulative IPC: 0.126025 (Simulation time: 0 hr 0 min 33 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/matrix_mul_512.trace.gz
+Heartbeat CPU 0 instructions: 9000001 cycles: 71379664 heartbeat IPC: 0.126566 cumulative IPC: 0.126085 (Simulation time: 0 hr 0 min 37 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: trace/matrix_mul_512.trace.gz
+Heartbeat CPU 0 instructions: 10000001 cycles: 79280258 heartbeat IPC: 0.126573 cumulative IPC: 0.126134 (Simulation time: 0 hr 0 min 41 sec) 
+Finished CPU 0 instructions: 10000001 cycles: 79280464 cummulative IPC: 0.126134 (Simulation time: 0 hr 0 min 41 sec) 
+
+ChampSim completed all CPUs
+
+Region of Interest Statistics
+
+CPU 0 cummulative IPC: 0.126134 instructions: 10000001 cycles: 79280464
+LLC TOTAL     ACCESS:     310202  HIT:     286633  MISS:      23569
+LLC LOAD      ACCESS:      30473  HIT:      22131  MISS:       8342
+LLC RFO       ACCESS:     137826  HIT:     122599  MISS:      15227
+LLC PREFETCH  ACCESS:          0  HIT:          0  MISS:          0
+LLC WRITEBACK ACCESS:     141903  HIT:     141903  MISS:          0
+OPTgen accesses: 2511
+OPTgen hits: 2251
+OPTgen hit rate: 89.6456
+
+
